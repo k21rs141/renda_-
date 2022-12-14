@@ -9,16 +9,36 @@
 // 「ランキングを見る」ボタン押下時の処理
 function toRanking() {
     // データ取得
-    checkRanking();
+    checkupRanking();
     // ランキング画面へ遷移
     window.location.href = "#ranking-page";
 }
 
+function todownRanking() {
+    // データ取得
+    checkdownRanking();
+    // ランキング画面へ遷移
+    window.location.href = "#downranking-page";
+}
+
 // 【mBaaS】保存したデータの検索と取得
-function checkRanking() {
+function checkupRanking() {
     // **********【問題２】ランキングを表示しよう！**********
     var highScore = ncmb.DataStore("GameScore");
     highScore.order("score", true).limit(5)
+    .fetchAll().then(function(results){
+        console.log("検索に成功しました。");
+        setData(results);
+    }).catch(function(error){
+        console.log("検索に失敗しました。エラー:" +error);
+    });
+    // ******************************************************
+}
+
+function checkdownRanking() {
+    // **********【問題２】ランキングを表示しよう！**********
+    var rowScore = ncmb.DataStore("GameScore");
+    rowScore.order("score", false).limit(5)
     .fetchAll().then(function(results){
         console.log("検索に成功しました。");
         setData(results);
@@ -39,6 +59,17 @@ function setData(array) {
         var score = table.rows[i].cells[2];
         score.innerHTML = array[i].score + "連打";
     }   
+
+    var table = document.getElementById("downrankingTable");
+    for (i=0; i<array.length; i++) {
+        // 名前の設定
+        var name = table.rows[i].cells[1];
+        name.innerHTML = array[i].name + "さん";
+        // スコアの設定
+        var score = table.rows[i].cells[2];
+        score.innerHTML = array[i].score + "連打";
+    }   
+
 }
 
 
