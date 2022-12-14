@@ -29,10 +29,14 @@
         <div data-role="header" data-position="fixed" data-theme="c">
             <h1></h1>
                 <!--<a href="#ranking-page" id="ranking" class="ui-btn-right" onclick="toRanking()">ランキングを見る</a>-->
+                <!--<a href="#downranking-page" id="downranking" class="ui-btn-right" onclick="todownRanking()">下位ランキングを見る</a>-->
+
         </div>
         <div data-role="content">
             <form name="gameForm">
-                <input type="button" value="ランキングを見る" name="ranking" onclick="toRanking()" />
+                <input type="button" value="上位ランキングを見る" name="ranking" onclick="toRanking()" />
+                <input type="button" value="下位ランキングを見る" name="downranking" onclick="todownRanking()" />
+
                 <center>
                     <h1>連打アプリ</h1>
                 </center>
@@ -48,7 +52,7 @@
         </div>           
     </div>
     
-    <!-- ランキング画面 -->
+    <!-- 上位ランキング画面 -->
     <div data-role="page" id="ranking-page">
         <div data-role="header" data-position="fixed" data-theme="c">
             <h1></h1>
@@ -56,7 +60,7 @@
         </div>
         <div data-role="content">
             <center>
-                <h1>ランキング</h1><br />
+                <h1>上位ランキング</h1><br />
                 <table id="rankingTable" border="1" width="90%" cellspacing="1" cellpadding="5">
                     <tr>
                         <td align="right" nowrap>１位</td>
@@ -87,5 +91,46 @@
             </center>
         </div>
     </div>
+
+    <!-- 下位ランキング画面 -->
+    <div data-role="page" id="downranking-page">
+        <div data-role="header" data-position="fixed" data-theme="c">
+            <h1></h1>
+            <a href="#list-page" data-icon="back" class="ui-btn-left">戻る</a>
+        </div>
+        <div data-role="content">
+            <center>
+                <h1>下位ランキング</h1><br />
+                <table id="downrankingTable" border="1" width="90%" cellspacing="1" cellpadding="5">
+                    <tr>
+                        <td align="right" nowrap>１位</td>
+                        <td id= "name_1" align="center" width="200">no data</td>
+                        <td id= "score_1"align="center" width="150">-</td>
+                    </tr>
+                    <tr>
+                        <td align="right" nowrap>２位</td>
+                        <td id = "name_2" align="center" width="200">no data</td>
+                        <td id = "name_2" align="center" width="150">-</td>
+                    </tr>
+                    <tr>
+                        <td align="right" nowrap>３位</td>
+                        <td id = "name_3" align="center" width="200">no data</td>
+                        <td id = "name_3" align="center" width="150">-</td>
+                    </tr>
+                    <tr>
+                        <td align="right" nowrap>４位</td>
+                        <td id = "name_4" align="center" width="200">no data</td>
+                        <td id = "name_4" align="center" width="150">-</td>
+                    </tr>
+                    <tr>
+                        <td align="right" nowrap>５位</td>
+                        <td id = "name_5" align="center" width="200">no data</td>
+                        <td id = "name_5" align="center" width="150">-</td>
+                    </tr>
+                </table> 
+            </center>
+        </div>
+    </div>
+
 </body>
 </html>
